@@ -1,20 +1,18 @@
-## Interface: 100207
+## Interface: 110000
 ## Title: AetherCore
 ## Author: JugoBetrugoTV
 ## Version: 1.0.0
-## Description: AetherCore - A comprehensive addon framework
-## SavedVariables: AetherCoreSV
-## SavedVariablesPerCharacter: AetherCoreCharSV
-## OptionalDeps: Ace3
-## X-Curse-Project-ID: 
-## X-WoWI-ID: 
-## X-Date: 2025-12-19
+## Notes: A comprehensive World of Warcraft addon for enhanced gameplay and utilities
 
-# Core modules
-Core.lua
-Config.lua
-Utils.lua
-Events.lua
+# Core Files
+Core/Constants.lua
+Core/Utilities.lua
+Core/Config.lua
 
-# Main addon file
+# Features
+Features/CombatEnhancements.lua
+Features/UnitFrames.lua
+Features/Notifications.lua
+
+# Main
 AetherCore.lua
