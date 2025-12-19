@@ -1,0 +1,20 @@
+## Interface: 100207
+## Title: AetherCore
+## Author: JugoBetrugoTV
+## Version: 1.0.0
+## Description: AetherCore - A comprehensive addon framework
+## SavedVariables: AetherCoreSV
+## SavedVariablesPerCharacter: AetherCoreCharSV
+## OptionalDeps: Ace3
+## X-Curse-Project-ID: 
+## X-WoWI-ID: 
+## X-Date: 2025-12-19
+
+# Core modules
+Core.lua
+Config.lua
+Utils.lua
+Events.lua
+
+# Main addon file
+AetherCore.lua
