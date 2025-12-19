@@ -1,1002 +1,856 @@
-# AetherCore
+# AetherCore - WoW Addon Framework
 
-> A powerful, modular, and extensible framework for building modern applications with advanced theming, data tracking, and plugin architecture.
+![AetherCore](https://img.shields.io/badge/AetherCore-WoW%20Addon%20Framework-blue)
+![Version](https://img.shields.io/badge/version-1.0.0-green)
+![License](https://img.shields.io/badge/license-MIT-orange)
 
-![Status](https://img.shields.io/badge/status-active-brightgreen)
-![License](https://img.shields.io/badge/license-MIT-blue)
-![Version](https://img.shields.io/badge/version-1.0.0-informational)
+English | [Deutsch](#deutsch)
+
+## Overview
+
+**AetherCore** is a comprehensive World of Warcraft addon framework designed to enhance gameplay with powerful themes, modular components, quality-of-life features, and advanced database tracking capabilities. Whether you're looking to customize your UI, improve your workflow, or track game data efficiently, AetherCore provides a robust foundation for all your needs.
+
+### Key Features
+
+- **🎨 Dynamic Theme System**: Multiple professionally designed themes with full customization
+- **📦 Modular Architecture**: Extensible module system for flexible functionality
+- **⚡ Quality of Life Features**: Enhanced gameplay experience with practical utilities
+- **📊 Database Tracking**: Comprehensive tracking and logging of game data
+- **🔧 Easy Configuration**: User-friendly settings and preferences management
+
+---
 
 ## 📋 Table of Contents
 
-- [Features](#features)
-- [Installation](#installation)
-- [Quick Start](#quick-start)
-- [Architecture Overview](#architecture-overview)
-- [Theme System](#theme-system)
-- [Module System](#module-system)
-- [Creating Custom Modules](#creating-custom-modules)
-- [Data Tracking](#data-tracking)
-- [Configuration](#configuration)
-- [Troubleshooting](#troubleshooting)
-- [Contributing](#contributing)
-- [Roadmap](#roadmap)
-- [Support](#support)
-- [License](#license)
-- [Author](#author)
+1. [Installation](#installation)
+2. [Features](#features)
+3. [Themes](#themes)
+4. [Modules](#modules)
+5. [Configuration](#configuration)
+6. [Troubleshooting](#troubleshooting)
+7. [Contributing](#contributing)
+8. [Deutsch](#deutsch)
 
-## ✨ Features
+---
 
-### Core Features
-- **Modular Architecture**: Build applications with a plugin-based system for maximum flexibility
-- **Advanced Theming System**: Create and manage multiple themes with dynamic switching
-- **Data Tracking & Analytics**: Built-in tracking system for user interactions and application events
-- **Configuration Management**: Centralized configuration system with environment support
-- **Event System**: Publish-subscribe event handling for decoupled components
-- **Middleware Support**: Chain middleware for request processing and data transformation
-- **Hot Module Reloading**: Development mode with hot reload capabilities
-- **Type Safety**: Full TypeScript support with comprehensive type definitions
-
-### Advanced Capabilities
-- Real-time event streaming
-- Custom module development framework
-- Extensible logging system
-- Performance monitoring and metrics
-- State management utilities
-- Error handling and recovery
-- Security features and best practices
-
-## 📦 Installation
+## Installation
 
 ### Requirements
-- Node.js 16.0.0 or higher
-- npm 8.0.0 or higher (or yarn 1.22.0+)
 
-### npm Installation
+- **World of Warcraft** (Latest Expansion)
+- **Retail or Classic Client**
+- Basic knowledge of addon installation
 
-```bash
-npm install aethercore
+### Installation Steps
+
+#### Method 1: Manual Installation
+
+1. **Download the Addon**
+   - Download the latest release from the [Releases](../../releases) page
+   - Or clone the repository: `git clone https://github.com/JugoBetrugoTV/AetherCore.git`
+
+2. **Locate WoW Addons Folder**
+   - **Windows**: `C:\Program Files (x86)\World of Warcraft\_retail_\Interface\AddOns\`
+   - **macOS**: `/Applications/World of Warcraft/_retail_/Interface/AddOns/`
+   - **Linux**: `~/.wine/drive_c/Program Files (x86)/World of Warcraft/_retail_/Interface/AddOns/`
+
+3. **Copy the Addon**
+   - Extract or copy the `AetherCore` folder into the `AddOns` directory
+   - Ensure the folder structure is: `Interface/AddOns/AetherCore/`
+
+4. **Enable the Addon**
+   - Launch World of Warcraft
+   - In the Character Selection screen, click "Addons"
+   - Check the box next to "AetherCore" to enable it
+   - Reload the UI or restart the game
+
+#### Method 2: Using Package Managers
+
+If you use addon managers like CurseForge or WowUp:
+
+1. Search for "AetherCore"
+2. Click "Install"
+3. The addon will be automatically placed in your AddOns folder
+4. Enable it in-game
+
+### Verification
+
+After installation, verify the addon is loaded:
+- Type `/aetherc` or `/ac` in-game chat
+- You should see the AetherCore menu
+- Check the Main Menu > Addons for AetherCore status
+
+---
+
+## Features
+
+### 1. Dynamic Theme System
+
+AetherCore includes a sophisticated theme engine that allows seamless switching between professionally crafted visual styles:
+
+- **Dark Theme**: Low-light optimized interface perfect for evening gaming sessions
+- **Light Theme**: Clean, bright interface for well-lit environments
+- **Minimalist Theme**: Distraction-free design focusing on essential information
+- **Classic Theme**: Traditional WoW aesthetic with modern enhancements
+- **Custom Themes**: Create and share your own themes with the community
+
+**Theme Benefits:**
+- Consistent color schemes across all UI elements
+- Reduced eye strain with multiple brightness options
+- Accessibility improvements for colorblind players
+- Instant theme switching without UI reload
+
+### 2. Quality of Life Features
+
+Enhance your gameplay with practical, time-saving utilities:
+
+- **Smart Quest Tracking**: Intelligent quest objective management
+- **Enhanced Inventory Management**: Quick-sort and filter systems
+- **Auto-Vendor Junk**: Automatically sell grayed-out items
+- **Buff Reminder**: Notifications for expired buffs
+- **Group Utilities**: Enhanced raid and party information
+- **Performance Monitoring**: FPS and latency tracking
+- **Customizable Hotkeys**: Bind any action to your preferred keys
+
+### 3. Modular System
+
+The addon framework is built on a modular architecture:
+
+- **Core Module**: Essential functionality and framework
+- **UI Module**: Interface customization and management
+- **Database Module**: Data persistence and tracking
+- **Utilities Module**: Helper functions and tools
+- **Optional Modules**: Install only what you need
+
+Each module can be independently enabled or disabled in the settings.
+
+### 4. Advanced Database Tracking
+
+Track and analyze game data with powerful persistence features:
+
+- **Activity Logging**: Record gameplay statistics and achievements
+- **Equipment Tracking**: Monitor gear changes and upgrades
+- **Gold Tracking**: Track income and expenses
+- **Raid Data**: Store raid progression and performance metrics
+- **Custom Tracking**: Define your own tracking parameters
+- **Data Export**: Export tracked data for external analysis
+
+---
+
+## Themes
+
+### Theme Management
+
+Access themes through the main configuration menu or type `/ac themes`
+
+### Available Themes
+
+| Theme Name | Style | Best For | Colors |
+|-----------|-------|----------|--------|
+| **Dark** | Modern Dark | Night gaming | #1a1a1a - #ffffff |
+| **Light** | Clean Bright | Day gaming | #ffffff - #000000 |
+| **Minimalist** | Distraction-free | Competitive play | #2a2a2a - #cccccc |
+| **Classic** | Traditional WoW | Nostalgia | Gold & Bronze |
+| **Custom** | User-defined | Personal preference | Customizable |
+
+### Creating Custom Themes
+
+1. Open Settings: `/ac settings`
+2. Navigate to "Themes" > "Create New Theme"
+3. Customize colors, fonts, and layouts
+4. Save with a unique name
+5. Share with the community (optional)
+
+**Theme File Structure:**
+```
+/AetherCore/themes/mytheme/
+├── colors.lua
+├── fonts.lua
+└── layouts.lua
 ```
 
-### yarn Installation
+---
 
-```bash
-yarn add aethercore
+## Modules
+
+### Core Module
+
+**Purpose**: Foundation of AetherCore framework
+- Initialization and event handling
+- Core API and utilities
+- Configuration management
+
+**Usage**: Automatically loaded; no configuration needed
+
+### UI Module
+
+**Purpose**: Interface customization and enhancement
+- Frame management
+- Custom UI elements
+- Theme application
+
+**Configuration**:
+```
+/ac ui settings
+- Enable/Disable custom UI elements
+- Adjust frame positions and sizes
+- Configure transparency and scaling
 ```
 
-### pnpm Installation
+### Database Module
 
-```bash
-pnpm add aethercore
+**Purpose**: Data storage and retrieval
+- SQLite-based persistent storage
+- Query and analytics functions
+- Automated backups
+
+**Features**:
+- Automatic weekly backups
+- Data integrity checking
+- Export/Import functionality
+
+**Command**: `/ac database`
+
+### Utilities Module
+
+**Purpose**: Helper functions and productivity tools
+- Chat enhancements
+- Cooldown tracking
+- Target analysis
+
+**Available Commands**:
+```
+/aetherc config     - Open configuration panel
+/aetherc status     - Display addon status
+/aetherc reset      - Reset to default settings
+/aetherc help       - Show command help
 ```
 
-### From Source
+### Optional Modules
 
-```bash
-git clone https://github.com/JugoBetrugoTV/AetherCore.git
-cd AetherCore
-npm install
-npm run build
+**Advanced Features Module**:
+- Raid warnings
+- Boss timers
+- Strategy guides
+
+**Enable**: `/ac modules toggle advanced`
+
+**PvP Enhancements Module**:
+- Arena information
+- Battleground statistics
+- Enemy team tracking
+
+**Enable**: `/ac modules toggle pvp`
+
+---
+
+## Configuration
+
+### Quick Setup
+
+1. **First Launch**: AetherCore initializes with default settings
+2. **Configuration Menu**: Type `/ac settings` or `/aetherc config`
+3. **Categories**:
+   - General (Language, Autosave, Debug Mode)
+   - Display (Theme, Scaling, Transparency)
+   - Features (Module toggles, Feature toggles)
+   - Database (Backup frequency, Data retention)
+   - Keybindings (Custom hotkeys)
+   - About (Version, Credits)
+
+### Configuration Files
+
+Settings are stored in:
+```
+WoW/WTF/Account/[Account]/SavedVariables/AetherCore.lua
 ```
 
-## 🚀 Quick Start
+### Common Settings
 
-### Basic Setup
+**Auto-save Database**: Enabled (Recommended)
+**Theme**: Dark (Default)
+**Update Frequency**: Every 5 minutes (Customizable)
+**Debug Mode**: Disabled (Enable for troubleshooting)
 
-```javascript
-import { AetherCore } from 'aethercore';
+### Advanced Configuration
 
-// Initialize AetherCore with default configuration
-const aether = new AetherCore({
-  appName: 'MyApp',
-  environment: 'development',
-  logging: {
-    level: 'info',
-    enableConsole: true
-  }
-});
+For advanced users, edit the Lua configuration files directly:
 
-// Start the application
-await aether.initialize();
-```
-
-### Loading a Theme
-
-```javascript
-// Load a built-in theme
-await aether.themeManager.loadTheme('dark');
-
-// Or apply custom theme
-await aether.themeManager.applyTheme({
-  name: 'custom-theme',
-  colors: {
-    primary: '#007bff',
-    secondary: '#6c757d',
-    background: '#ffffff'
-  }
-});
-```
-
-### Registering a Module
-
-```javascript
-// Register a module
-aether.moduleManager.register({
-  name: 'analytics',
-  version: '1.0.0',
-  enabled: true,
-  handlers: {
-    onInit: async () => {
-      console.log('Analytics module initialized');
+```lua
+-- Example: Modifying refresh rate
+AetherCore_Config = {
+    database = {
+        updateFrequency = 300,  -- seconds
+        autoBackup = true,
+        retentionDays = 30
     },
-    onTrackEvent: (event) => {
-      console.log('Event tracked:', event);
+    ui = {
+        theme = "dark",
+        scale = 1.0,
+        opacity = 1.0
     }
-  }
-});
-
-// Enable the module
-aether.moduleManager.enable('analytics');
-```
-
-### Using Event System
-
-```javascript
-// Subscribe to events
-aether.on('user:login', (user) => {
-  console.log(`User ${user.id} logged in`);
-});
-
-// Emit events
-aether.emit('user:login', {
-  id: 123,
-  username: 'john_doe',
-  timestamp: new Date()
-});
-```
-
-## 🏗️ Architecture Overview
-
-### System Architecture
-
-```
-┌─────────────────────────────────────────┐
-│         AetherCore Application          │
-├─────────────────────────────────────────┤
-│                                         │
-│  ┌─────────────────────────────────┐   │
-│  │    Application Layer            │   │
-│  │  (Event Handlers, Routes, UI)   │   │
-│  └──────────────┬──────────────────┘   │
-│                 │                      │
-│  ┌──────────────▼──────────────────┐   │
-│  │    Module System                │   │
-│  │  (Plugins, Extensions)          │   │
-│  └──────────────┬──────────────────┘   │
-│                 │                      │
-│  ┌──────────────▼──────────────────┐   │
-│  │    Core Services                │   │
-│  │  (Event Bus, Config, Logger)    │   │
-│  └──────────────┬──────────────────┘   │
-│                 │                      │
-│  ┌──────────────┴──────────────────┐   │
-│  │  Feature Modules                │   │
-│  ├─────────────────────────────────┤   │
-│  │ ├─ Theme Manager                │   │
-│  │ ├─ Data Tracking                │   │
-│  │ ├─ State Management             │   │
-│  │ ├─ Logging System               │   │
-│  │ └─ Middleware Chain             │   │
-│  └─────────────────────────────────┘   │
-│                                         │
-└─────────────────────────────────────────┘
-```
-
-### Core Components
-
-- **EventBus**: Central event management system
-- **ModuleManager**: Handles module registration and lifecycle
-- **ThemeManager**: Manages application themes
-- **ConfigManager**: Centralized configuration management
-- **DataTracker**: Tracks and records application events
-- **Logger**: Multi-level logging system
-- **MiddlewareChain**: Request/response processing pipeline
-
-## 🎨 Theme System
-
-### Built-in Themes
-
-AetherCore comes with several pre-configured themes:
-
-- **Light**: Clean, bright theme suitable for daytime use
-- **Dark**: Low-light theme to reduce eye strain
-- **Modern**: Contemporary design with gradients and shadows
-- **Classic**: Traditional professional appearance
-
-### Theme Structure
-
-```javascript
-{
-  name: 'my-theme',
-  version: '1.0.0',
-  colors: {
-    primary: '#007bff',
-    secondary: '#6c757d',
-    success: '#28a745',
-    danger: '#dc3545',
-    warning: '#ffc107',
-    info: '#17a2b8',
-    background: '#ffffff',
-    surface: '#f8f9fa',
-    text: '#212529',
-    textSecondary: '#6c757d'
-  },
-  fonts: {
-    primary: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif',
-    mono: 'Courier New, monospace'
-  },
-  spacing: {
-    xs: '4px',
-    sm: '8px',
-    md: '16px',
-    lg: '24px',
-    xl: '32px'
-  }
 }
 ```
 
-### Creating a Custom Theme
+---
 
-```javascript
-const customTheme = {
-  name: 'brand-theme',
-  colors: {
-    primary: '#FF6B35',
-    secondary: '#004E89',
-    background: '#F7F9FC'
-  }
-};
+## Troubleshooting
 
-await aether.themeManager.createTheme(customTheme);
-await aether.themeManager.loadTheme('brand-theme');
-```
+### Common Issues and Solutions
 
-### Switching Themes Dynamically
+#### 1. Addon Not Loading
 
-```javascript
-// Get available themes
-const themes = aether.themeManager.getAvailableThemes();
+**Problem**: "AetherCore" doesn't appear in the addon list
 
-// Switch to a theme
-await aether.themeManager.switchTheme('dark');
+**Solutions**:
+- Verify installation path: `Interface/AddOns/AetherCore/`
+- Check folder structure includes `AetherCore.toc` file
+- Ensure folder name is exactly "AetherCore" (case-sensitive on Mac/Linux)
+- Disable conflicting addons temporarily
+- Clear WoW cache: Delete `WoW/Cache/` folder
 
-// Listen to theme changes
-aether.themeManager.on('theme:changed', (theme) => {
-  console.log(`Switched to ${theme.name}`);
-});
-```
+**Command to verify**: `/aetherc status`
 
-## 🧩 Module System
+#### 2. Settings Not Saving
 
-### Module Lifecycle
+**Problem**: Configuration reverts after logout
 
-```
-Registration → Validation → Initialization → Active → Disabled → Unloaded
-```
+**Solutions**:
+- Check file permissions on SavedVariables folder
+- Ensure `AetherCore.lua` in SavedVariables is writable
+- Try resetting settings: `/ac reset`
+- Check disk space availability
+- Disable read-only mode on the addon folder
 
-### Module Structure
+#### 3. Database Corruption
 
-```javascript
-{
-  // Required
-  name: 'module-name',           // Unique module identifier
-  version: '1.0.0',              // Semantic version
-  
-  // Optional
-  description: 'Module description',
-  author: 'Author Name',
-  enabled: true,
-  dependencies: ['other-module'],
-  config: { /* module config */ },
-  
-  // Lifecycle Hooks
-  handlers: {
-    onInit: async (aether) => {},
-    onEnable: async (aether) => {},
-    onDisable: async (aether) => {},
-    onUnload: async (aether) => {}
-  }
-}
-```
+**Problem**: "Database error" message or data loss
 
-### Built-in Modules
+**Solutions**:
+- Type `/ac database repair` to run integrity check
+- Restore from backup: `/ac database restore`
+- Check database file: `SavedVariables/AetherCore_DB.lua`
+- Contact support with error logs if issue persists
 
-#### Analytics Module
-Tracks user interactions and application events.
+**Log Location**: `WoW/Logs/AetherCore_error.log`
 
-```javascript
-aether.moduleManager.register({
-  name: 'analytics',
-  version: '1.0.0',
-  handlers: {
-    onInit: async () => {
-      console.log('Analytics initialized');
-    }
-  }
-});
-```
+#### 4. Performance Issues
 
-#### Performance Module
-Monitors application performance metrics.
+**Problem**: FPS drops or lag after enabling AetherCore
 
-```javascript
-aether.moduleManager.register({
-  name: 'performance',
-  version: '1.0.0',
-  handlers: {
-    onInit: async () => {
-      console.log('Performance monitoring enabled');
-    }
-  }
-});
-```
+**Solutions**:
+- Disable unused modules: `/ac modules list`
+- Reduce database update frequency: `/ac settings > Database`
+- Enable low-performance mode: `/ac performance low`
+- Check for conflicting addons
+- Update to latest AetherCore version
 
-#### Logger Module
-Provides comprehensive logging capabilities.
+#### 5. Theme Not Applying
 
-```javascript
-aether.logger.info('Information message');
-aether.logger.warn('Warning message');
-aether.logger.error('Error message');
-aether.logger.debug('Debug message');
-```
+**Problem**: Selected theme doesn't change UI appearance
 
-### Module Management API
+**Solutions**:
+- Verify theme installation in `/themes/` folder
+- Reload UI: `/reload` or `/rl`
+- Reset UI to defaults: `/ac reset`
+- Clear temporary theme cache: `/ac clearcache`
+- Ensure custom theme syntax is valid
 
-```javascript
-// Register a module
-aether.moduleManager.register(moduleConfig);
+#### 6. Chat Commands Not Working
 
-// Enable a module
-aether.moduleManager.enable('module-name');
+**Problem**: `/ac` or `/aetherc` commands don't respond
 
-// Disable a module
-aether.moduleManager.disable('module-name');
+**Solutions**:
+- Verify addon is enabled in addon list
+- Use alternative command: `/aetherc` (if `/ac` doesn't work)
+- Check for typos in command spelling
+- Reload UI: `/reload`
+- Verify addon loaded: Check "Addons" in main menu
 
-// Check if module is enabled
-const isEnabled = aether.moduleManager.isEnabled('module-name');
+### Getting Help
 
-// Get module information
-const moduleInfo = aether.moduleManager.getModule('module-name');
+1. **Check Documentation**: Review this README and in-game help
+2. **Enable Debug Mode**: `/ac settings > General > Debug Mode`
+3. **Check Logs**: Review error logs at `WoW/Logs/AetherCore_error.log`
+4. **Community Support**: Visit our [Issues](../../issues) page
+5. **Bug Report**: Include:
+   - WoW version and locale
+   - AetherCore version: `/ac version`
+   - Error message (exact text)
+   - Steps to reproduce
+   - `AetherCore_error.log` file contents
 
-// List all modules
-const allModules = aether.moduleManager.listModules();
+---
 
-// Unload a module
-await aether.moduleManager.unload('module-name');
-```
+## Contributing
 
-## 🔧 Creating Custom Modules
+Contributions are welcome! Help improve AetherCore:
 
-### Step 1: Define Module Structure
+### How to Contribute
 
-```javascript
-// modules/myModule.js
-export const myModule = {
-  name: 'my-module',
-  version: '1.0.0',
-  description: 'Custom module for AetherCore',
-  author: 'Your Name',
-  enabled: true,
-  
-  // Module configuration schema
-  configSchema: {
-    apiUrl: { type: 'string', required: true },
-    timeout: { type: 'number', default: 5000 }
-  },
-  
-  // Module state
-  state: {
-    isInitialized: false,
-    data: null
-  }
-};
-```
-
-### Step 2: Implement Lifecycle Handlers
-
-```javascript
-myModule.handlers = {
-  onInit: async (aether) => {
-    console.log('Module initializing...');
-    // Perform initialization tasks
-    aether.logger.info('myModule initialized');
-  },
-  
-  onEnable: async (aether) => {
-    console.log('Module enabled');
-    // Subscribe to events
-    aether.on('app:ready', () => {
-      console.log('App is ready');
-    });
-  },
-  
-  onDisable: async (aether) => {
-    console.log('Module disabled');
-    // Cleanup subscriptions
-  },
-  
-  onUnload: async (aether) => {
-    console.log('Module unloading...');
-    // Final cleanup
-  }
-};
-```
-
-### Step 3: Add Custom Handlers
-
-```javascript
-myModule.handlers.onUserAction = (action) => {
-  console.log(`User action: ${action.type}`);
-};
-
-myModule.handlers.onDataUpdate = (data) => {
-  console.log(`Data updated:`, data);
-};
-```
-
-### Step 4: Register and Use
-
-```javascript
-import { myModule } from './modules/myModule';
-
-// Register the module
-aether.moduleManager.register(myModule);
-
-// Enable the module
-aether.moduleManager.enable('my-module');
-
-// Emit events to your module
-aether.emit('app:userAction', { type: 'click', target: 'button' });
-```
-
-### Complete Example: Analytics Module
-
-```javascript
-export const analyticsModule = {
-  name: 'analytics',
-  version: '1.0.0',
-  description: 'Advanced analytics tracking',
-  author: 'Your Team',
-  
-  configSchema: {
-    trackingId: { type: 'string', required: true },
-    batchSize: { type: 'number', default: 50 },
-    flushInterval: { type: 'number', default: 30000 }
-  },
-  
-  state: {
-    events: [],
-    isTracking: false
-  },
-  
-  handlers: {
-    onInit: async (aether) => {
-      aether.logger.info('Analytics module initialized');
-    },
-    
-    onEnable: async (aether) => {
-      // Start event collection
-      this.state.isTracking = true;
-      
-      // Subscribe to all events
-      aether.on('*', (eventName, data) => {
-        this.trackEvent(eventName, data);
-      });
-      
-      // Setup batch flushing
-      setInterval(() => this.flushEvents(), this.config.flushInterval);
-    },
-    
-    onDisable: async (aether) => {
-      this.state.isTracking = false;
-      this.flushEvents();
-    }
-  },
-  
-  methods: {
-    trackEvent(name, data) {
-      if (!this.state.isTracking) return;
-      
-      this.state.events.push({
-        name,
-        data,
-        timestamp: Date.now()
-      });
-      
-      // Flush if batch size reached
-      if (this.state.events.length >= this.config.batchSize) {
-        this.flushEvents();
-      }
-    },
-    
-    flushEvents() {
-      if (this.state.events.length === 0) return;
-      
-      console.log(`Flushing ${this.state.events.length} events`);
-      // Send to backend
-      this.state.events = [];
-    }
-  }
-};
-```
-
-## 📊 Data Tracking
-
-### Event Tracking API
-
-```javascript
-// Track a simple event
-aether.track('button_clicked', {
-  buttonId: 'submit-btn',
-  section: 'form'
-});
-
-// Track user actions
-aether.track('user_action', {
-  action: 'login',
-  userId: 123,
-  timestamp: Date.now()
-});
-
-// Track page views
-aether.track('page_view', {
-  pageName: 'dashboard',
-  pageUrl: '/dashboard',
-  referrer: '/home'
-});
-
-// Track errors
-aether.track('error', {
-  errorType: 'RuntimeError',
-  message: 'Failed to fetch data',
-  stack: error.stack
-});
-```
-
-### Data Collection
-
-```javascript
-// Get tracked events
-const events = aether.dataTracker.getEvents();
-
-// Get events by type
-const clicks = aether.dataTracker.getEventsByType('button_clicked');
-
-// Get events in time range
-const recentEvents = aether.dataTracker.getEventsInRange(
-  Date.now() - 3600000, // 1 hour ago
-  Date.now()
-);
-
-// Clear events
-aether.dataTracker.clearEvents();
-```
-
-### Analytics Query
-
-```javascript
-// Get event count
-const totalEvents = aether.dataTracker.count();
-
-// Get event statistics
-const stats = aether.dataTracker.getStatistics({
-  groupBy: 'eventType',
-  timeRange: 'last24h'
-});
-
-// Export data
-const csvData = aether.dataTracker.export('csv');
-const jsonData = aether.dataTracker.export('json');
-```
-
-### Custom Event Handlers
-
-```javascript
-// Subscribe to tracking events
-aether.dataTracker.on('event:tracked', (event) => {
-  console.log('Event tracked:', event);
-});
-
-// Subscribe to specific event types
-aether.dataTracker.on('error:tracked', (error) => {
-  console.error('Error tracked:', error);
-});
-```
-
-## ⚙️ Configuration
-
-### Configuration File (aethercore.config.js)
-
-```javascript
-export default {
-  // Application settings
-  app: {
-    name: 'MyApplication',
-    version: '1.0.0',
-    environment: process.env.NODE_ENV || 'development'
-  },
-  
-  // Logging configuration
-  logging: {
-    level: 'info', // debug, info, warn, error
-    enableConsole: true,
-    enableFile: true,
-    logDir: './logs',
-    maxLogSize: '10mb',
-    maxLogFiles: 10
-  },
-  
-  // Theme settings
-  theme: {
-    default: 'light',
-    allowDynamic: true,
-    persistSelection: true,
-    storageKey: 'aether-theme'
-  },
-  
-  // Module system
-  modules: {
-    autoLoad: true,
-    modulesDir: './modules',
-    enableAllByDefault: false
-  },
-  
-  // Data tracking
-  tracking: {
-    enabled: true,
-    persistData: true,
-    maxEvents: 1000,
-    autoFlush: true,
-    flushInterval: 60000 // 1 minute
-  },
-  
-  // Performance
-  performance: {
-    enableMonitoring: true,
-    enableProfiling: false,
-    slowThreshold: 1000 // ms
-  },
-  
-  // Security
-  security: {
-    enableValidation: true,
-    enableSanitization: true,
-    enableEncryption: false
-  }
-};
-```
-
-### Environment-based Configuration
-
-```javascript
-// config/development.js
-export const devConfig = {
-  logging: { level: 'debug' },
-  theme: { default: 'light' }
-};
-
-// config/production.js
-export const prodConfig = {
-  logging: { level: 'error' },
-  theme: { default: 'dark' }
-};
-
-// Load based on environment
-const config = process.env.NODE_ENV === 'production'
-  ? prodConfig
-  : devConfig;
-
-const aether = new AetherCore(config);
-```
-
-### Runtime Configuration
-
-```javascript
-// Get configuration value
-const appName = aether.config.get('app.name');
-
-// Set configuration value
-aether.config.set('logging.level', 'debug');
-
-// Get entire config object
-const fullConfig = aether.config.getAll();
-
-// Merge configuration
-aether.config.merge({
-  logging: { enableFile: false }
-});
-```
-
-## 🔍 Troubleshooting
-
-### Common Issues
-
-#### Module Not Loading
-
-**Problem**: Module appears in the module list but doesn't initialize.
-
-**Solution**:
-```javascript
-// Check module status
-const module = aether.moduleManager.getModule('module-name');
-console.log('Module enabled:', module.enabled);
-console.log('Module errors:', module.errors);
-
-// Enable verbose logging
-aether.config.set('logging.level', 'debug');
-
-// Manually reinitialize
-await aether.moduleManager.reload('module-name');
-```
-
-#### Theme Not Applying
-
-**Problem**: Custom theme colors not showing up.
-
-**Solution**:
-```javascript
-// Verify theme was loaded
-const currentTheme = aether.themeManager.getCurrentTheme();
-console.log('Current theme:', currentTheme.name);
-
-// Check theme colors
-console.log('Theme colors:', currentTheme.colors);
-
-// Force theme refresh
-await aether.themeManager.refreshCurrentTheme();
-```
-
-#### Events Not Being Emitted
-
-**Problem**: Event listeners not receiving emitted events.
-
-**Solution**:
-```javascript
-// Verify listener is registered
-const hasListener = aether.eventBus.hasListeners('event-name');
-console.log('Has listeners:', hasListener);
-
-// Check if event is being emitted
-aether.on('*', (eventName, data) => {
-  console.log('Event emitted:', eventName, data);
-});
-
-// Verify event name spelling
-aether.emit('correct-event-name', {});
-```
-
-#### High Memory Usage
-
-**Problem**: Application consuming excessive memory.
-
-**Solution**:
-```javascript
-// Clear old events
-aether.dataTracker.clearEvents();
-
-// Disable unnecessary modules
-aether.moduleManager.disable('performance');
-
-// Check for memory leaks
-aether.on('*', () => {}); // Remove global listener
-aether.eventBus.removeAllListeners();
-
-// Configure tracking limits
-aether.config.set('tracking.maxEvents', 500);
-```
-
-#### Configuration Not Loading
-
-**Problem**: Configuration values not being read correctly.
-
-**Solution**:
-```javascript
-// Verify config file exists
-const config = await aether.config.loadFile('./aethercore.config.js');
-
-// Check environment variables
-console.log('Environment:', process.env.NODE_ENV);
-
-// Reset to defaults
-aether.config.reset();
-aether.config.merge(defaultConfig);
-```
-
-### Debug Mode
-
-```javascript
-// Enable debug mode
-const aether = new AetherCore({
-  debug: true,
-  logging: { level: 'debug' }
-});
-
-// Access debug information
-const debugInfo = aether.getDebugInfo();
-console.log(debugInfo);
-
-// Performance profiling
-aether.performance.startProfiling('operation-name');
-// ... perform operations ...
-const duration = aether.performance.endProfiling('operation-name');
-console.log(`Operation took ${duration}ms`);
-```
-
-## 🤝 Contributing
-
-We welcome contributions from the community! Please follow these guidelines:
-
-### Getting Started
-
-1. Fork the repository
-2. Clone your fork: `git clone https://github.com/your-username/AetherCore.git`
-3. Create a feature branch: `git checkout -b feature/your-feature-name`
-4. Make your changes
-5. Run tests: `npm run test`
-6. Commit your changes: `git commit -am 'Add your feature'`
-7. Push to the branch: `git push origin feature/your-feature-name`
-8. Submit a Pull Request
-
-### Code Standards
-
-- Follow the existing code style
-- Use TypeScript for all new code
-- Write unit tests for new features
-- Update documentation for any changes
-- Keep commits atomic and well-described
+1. **Report Bugs**: Create an issue with detailed information
+2. **Suggest Features**: Share ideas for new modules or improvements
+3. **Submit Code**: Fork the repository and create a pull request
+4. **Improve Documentation**: Help us make guides clearer
+5. **Create Themes**: Design and share custom themes
 
 ### Development Setup
 
 ```bash
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-
-# Run tests
-npm run test
-
-# Run linter
-npm run lint
-
-# Build for production
-npm run build
-
-# Generate documentation
-npm run docs
+git clone https://github.com/JugoBetrugoTV/AetherCore.git
+cd AetherCore
+# Make your changes
+git commit -am "Description of changes"
+git push origin your-branch
 ```
 
-### Testing
+### Code Style
 
-```bash
-# Run all tests
-npm test
-
-# Run tests with coverage
-npm run test:coverage
-
-# Run specific test file
-npm test -- path/to/test.spec.js
-
-# Watch mode
-npm run test:watch
-```
-
-### Reporting Issues
-
-When reporting issues, please include:
-- Clear description of the problem
-- Steps to reproduce
-- Expected vs actual behavior
-- Environment details (Node version, OS, etc.)
-- Relevant code snippets
-- Error logs or stack traces
-
-## 🗺️ Roadmap
-
-### Version 1.1.0 (Q1 2025)
-- [ ] WebSocket support for real-time events
-- [ ] Plugin marketplace integration
-- [ ] Advanced caching system
-- [ ] Performance optimization utilities
-- [ ] Extended theme customization
-
-### Version 1.2.0 (Q2 2025)
-- [ ] Database abstraction layer
-- [ ] Authentication & authorization system
-- [ ] API gateway functionality
-- [ ] Distributed tracing support
-- [ ] Advanced analytics dashboard
-
-### Version 2.0.0 (Q3 2025)
-- [ ] Microservices architecture support
-- [ ] Kubernetes integration
-- [ ] Advanced security features
-- [ ] Machine learning model support
-- [ ] Serverless function support
-
-### Version 2.1.0 (Q4 2025)
-- [ ] GraphQL integration
-- [ ] Real-time collaboration features
-- [ ] Advanced state synchronization
-- [ ] Plugin auto-update system
-- [ ] Cloud deployment tools
-
-## 💬 Support
-
-### Documentation
-- [Full Documentation](https://docs.aethercore.dev)
-- [API Reference](https://docs.aethercore.dev/api)
-- [Examples](https://github.com/JugoBetrugoTV/AetherCore/tree/main/examples)
-- [FAQ](https://docs.aethercore.dev/faq)
-
-### Community
-- [Discord Server](https://discord.gg/aethercore)
-- [GitHub Discussions](https://github.com/JugoBetrugoTV/AetherCore/discussions)
-- [Stack Overflow Tag](https://stackoverflow.com/questions/tagged/aethercore)
-- [Twitter](https://twitter.com/aethercore)
-
-### Getting Help
-- 📧 Email: support@aethercore.dev
-- 🐛 Report Issues: [GitHub Issues](https://github.com/JugoBetrugoTV/AetherCore/issues)
-- 💡 Feature Requests: [GitHub Discussions](https://github.com/JugoBetrugoTV/AetherCore/discussions)
-
-## 📄 License
-
-AetherCore is released under the MIT License. See the [LICENSE](LICENSE) file for complete details.
-
-```
-MIT License
-
-Copyright (c) 2024-2025 JugoBetrugoTV
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, OR IN CONNECTION
-WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-```
-
-## 👤 Author
-
-**JugoBetrugoTV**
-- GitHub: [@JugoBetrugoTV](https://github.com/JugoBetrugoTV)
-- Email: jugoberugo@example.com
-- Website: [www.jugoberugo.dev](https://www.jugoberugo.dev)
-
-### Acknowledgments
-
-Special thanks to all contributors and community members who have helped make AetherCore better through feedback, bug reports, and contributions.
+- Follow Lua conventions
+- Add comments for complex logic
+- Test thoroughly before submitting PR
+- Include documentation for new features
 
 ---
 
-**Made with ❤️ by JugoBetrugoTV**
+## License
 
-If you find AetherCore useful, please consider:
-- ⭐ Starring the repository
-- 🔄 Sharing with others
-- 💬 Providing feedback
-- 🤝 Contributing code or documentation
-- ☕ [Sponsoring the project](https://github.com/sponsors/JugoBetrugoTV)
+AetherCore is released under the MIT License. See [LICENSE](LICENSE) file for details.
+
+---
+
+## Credits
+
+**Developer**: JugoBetrugoTV  
+**Contributors**: Community members and testers  
+**Version**: 1.0.0  
+**Last Updated**: December 19, 2025
+
+---
+
+---
+
+# Deutsch
+
+## Übersicht
+
+**AetherCore** ist ein umfassendes World of Warcraft-Addon-Framework, das das Spielerlebnis durch leistungsstarke Designs, modulare Komponenten, Quality-of-Life-Funktionen und fortgeschrittene Datenverfolgung verbessert. Egal ob Sie Ihre Benutzeroberfläche anpassen, Ihren Arbeitsablauf verbessern oder Spieldaten effizient verfolgen möchten – AetherCore bietet eine robuste Grundlage für alle Ihre Anforderungen.
+
+### Hauptmerkmale
+
+- **🎨 Dynamisches Design-System**: Mehrere professionell gestaltete Designs mit vollständiger Anpassung
+- **📦 Modulare Architektur**: Erweiterbares Modulsystem für flexible Funktionalität
+- **⚡ Quality-of-Life-Funktionen**: Verbessertes Spielerlebnis mit praktischen Dienstprogrammen
+- **📊 Datenbankverfolgung**: Umfassende Verfolgung und Protokollierung von Spieldaten
+- **🔧 Einfache Konfiguration**: Benutzerfreundliche Einstellungs- und Präferenzverwaltung
+
+---
+
+## 📋 Inhaltsverzeichnis
+
+1. [Installation](#installation-de)
+2. [Funktionen](#funktionen)
+3. [Designs](#designs)
+4. [Module](#module-de)
+5. [Konfiguration](#konfiguration-de)
+6. [Fehlerbehebung](#fehlerbehebung)
+7. [Beitragen](#beitragen-de)
+
+---
+
+## Installation (Deutsch) {#installation-de}
+
+### Anforderungen
+
+- **World of Warcraft** (Neueste Erweiterung)
+- **Retail oder Classic Client**
+- Grundkenntnisse zur Addon-Installation
+
+### Installationsschritte
+
+#### Methode 1: Manuelle Installation
+
+1. **Addon herunterladen**
+   - Laden Sie die neueste Version von der [Releases](../../releases)-Seite herunter
+   - Oder klonen Sie das Repository: `git clone https://github.com/JugoBetrugoTV/AetherCore.git`
+
+2. **WoW Addons-Ordner finden**
+   - **Windows**: `C:\Program Files (x86)\World of Warcraft\_retail_\Interface\AddOns\`
+   - **macOS**: `/Applications/World of Warcraft/_retail_/Interface/AddOns/`
+   - **Linux**: `~/.wine/drive_c/Program Files (x86)/World of Warcraft/_retail_/Interface/AddOns/`
+
+3. **Addon kopieren**
+   - Extrahieren oder kopieren Sie den `AetherCore`-Ordner in das `AddOns`-Verzeichnis
+   - Stellen Sie sicher, dass die Ordnerstruktur wie folgt aussieht: `Interface/AddOns/AetherCore/`
+
+4. **Addon aktivieren**
+   - Starten Sie World of Warcraft
+   - Klicken Sie auf dem Charakterauswahlbildschirm auf "Addons"
+   - Aktivieren Sie das Kontrollkästchen neben "AetherCore"
+   - Laden Sie die Benutzeroberfläche neu oder starten Sie das Spiel neu
+
+#### Methode 2: Addon-Manager verwenden
+
+Wenn Sie Addon-Manager wie CurseForge oder WowUp verwenden:
+
+1. Suchen Sie nach "AetherCore"
+2. Klicken Sie auf "Installieren"
+3. Das Addon wird automatisch im AddOns-Ordner platziert
+4. Aktivieren Sie es im Spiel
+
+### Überprüfung
+
+Nach der Installation überprüfen Sie, ob das Addon geladen ist:
+- Geben Sie `/aetherc` oder `/ac` im Spielchat ein
+- Sie sollten das AetherCore-Menü sehen
+- Überprüfen Sie das Hauptmenü > Addons auf AetherCore-Status
+
+---
+
+## Funktionen
+
+### 1. Dynamisches Design-System
+
+AetherCore verfügt über eine raffinierte Design-Engine, die nahtlose Umschaltungen zwischen professionell gestalteten visuellen Stilen ermöglicht:
+
+- **Dunkles Design**: Für Niedriglichtsituationen optimierte Schnittstelle
+- **Helles Design**: Saubere, helle Schnittstelle für gut beleuchtete Umgebungen
+- **Minimalistisches Design**: Ablenkungsfreier Entwurf mit Fokus auf wesentliche Informationen
+- **Klassisches Design**: Traditionelle WoW-Ästhetik mit modernen Verbesserungen
+- **Benutzerdefinierte Designs**: Erstellen und teilen Sie Ihre eigenen Designs mit der Gemeinschaft
+
+**Design-Vorteile:**
+- Konsistente Farbschemen über alle UI-Elemente
+- Reduzierte Augenbelastung mit mehreren Helligkeitsoptionen
+- Verbesserungen der Barrierefreiheit für farbenblinde Spieler
+- Sofortiges Design-Wechsel ohne Neustart der Benutzeroberfläche
+
+### 2. Quality-of-Life-Funktionen
+
+Verbessern Sie Ihr Spielerlebnis mit praktischen, zeitsparenden Dienstprogrammen:
+
+- **Intelligente Questverfolgung**: Intelligente Verwaltung von Questzielen
+- **Verbesserte Bestandsverwaltung**: Schnell-Sortierung und Filtersysteme
+- **Auto-Vendor-Schrott**: Verkaufen Sie automatisch ergraute Gegenstände
+- **Buff-Erinnerung**: Benachrichtigungen für abgelaufene Buffs
+- **Grup­pen­dia­logs**: Erweiterte Raid- und Gruppeninformationen
+- **Leistungsüberwachung**: FPS- und Latenz-Tracking
+- **Anpassbare Hotkeys**: Binden Sie jede Aktion an Ihre bevorzugten Tasten
+
+### 3. Modulares System
+
+Das Addon-Framework ist auf einer modularen Architektur aufgebaut:
+
+- **Core-Modul**: Wesentliche Funktionalität und Framework
+- **UI-Modul**: Schnittstellen-Anpassung und Verwaltung
+- **Datenbank-Modul**: Datenverfolgung und -speicherung
+- **Utilities-Modul**: Hilfsfunktionen und Tools
+- **Optionale Module**: Installieren Sie nur, was Sie benötigen
+
+Jedes Modul kann in den Einstellungen unabhängig aktiviert oder deaktiviert werden.
+
+### 4. Fortgeschrittene Datenbankverfolgung
+
+Verfolgen und analysieren Sie Spieldaten mit leistungsstarken Persistenz-Funktionen:
+
+- **Aktivitätsprotokollierung**: Aufzeichnung von Spielstatistiken und Errungenschaften
+- **Ausrüstungsverfolgung**: Überwachen Sie Ausrüstungswechsel und Upgrades
+- **Gold-Verfolgung**: Verfolgen Sie Einnahmen und Ausgaben
+- **Raid-Daten**: Speichern Sie Raid-Progression und Leistungsmetriken
+- **Benutzerdefinierte Verfolgung**: Definieren Sie Ihre eigenen Verfolgungsparameter
+- **Datenexport**: Exportieren Sie verfollgte Daten für externe Analyse
+
+---
+
+## Designs {#designs}
+
+### Design-Verwaltung
+
+Greifen Sie auf Designs über das Hauptkonfigurationsmenü oder den Befehl `/ac themes` zu
+
+### Verfügbare Designs
+
+| Design-Name | Stil | Ideal für | Farben |
+|-----------|-------|----------|--------|
+| **Dunkel** | Modernes Dunkel | Nachts Gaming | #1a1a1a - #ffffff |
+| **Hell** | Sauberes Helles | Tag Gaming | #ffffff - #000000 |
+| **Minimalistisch** | Ablenkungsfrei | Competitive Play | #2a2a2a - #cccccc |
+| **Klassisch** | Traditionelles WoW | Nostalgie | Gold & Bronze |
+| **Benutzerdefiniert** | Benutzerdefiniert | Persönliche Vorliebe | Anpassbar |
+
+### Benutzerdefinierte Designs erstellen
+
+1. Öffnen Sie Einstellungen: `/ac settings`
+2. Navigieren Sie zu "Designs" > "Neues Design erstellen"
+3. Passen Sie Farben, Schriftarten und Layouts an
+4. Speichern Sie mit einem eindeutigen Namen
+5. Teilen Sie mit der Gemeinschaft (optional)
+
+**Design-Dateistruktur:**
+```
+/AetherCore/themes/meindesign/
+├── colors.lua
+├── fonts.lua
+└── layouts.lua
+```
+
+---
+
+## Module {#module-de}
+
+### Core-Modul
+
+**Zweck**: Grundlage des AetherCore-Frameworks
+- Initialisierung und Event-Verarbeitung
+- Core API und Dienstprogramme
+- Konfigurationsverwaltung
+
+**Verwendung**: Wird automatisch geladen; keine Konfiguration erforderlich
+
+### UI-Modul
+
+**Zweck**: Schnittstellen-Anpassung und Verbesserung
+- Frame-Verwaltung
+- Benutzerdefinierte UI-Elemente
+- Design-Anwendung
+
+**Konfiguration**:
+```
+/ac ui settings
+- Aktivieren/Deaktivieren benutzerdefinierter UI-Elemente
+- Passen Sie Frame-Positionen und -Größen an
+- Konfigurieren Sie Transparenz und Skalierung
+```
+
+### Datenbank-Modul
+
+**Zweck**: Datenspeicherung und -abruf
+- SQLite-basierte persistente Speicherung
+- Abfrage- und Analysefunktionen
+- Automatisierte Sicherungen
+
+**Funktionen**:
+- Automatische wöchentliche Sicherungen
+- Datenintegritätsprüfung
+- Export/Import-Funktionalität
+
+**Befehl**: `/ac database`
+
+### Utilities-Modul
+
+**Zweck**: Hilfsfunktionen und Produktivitäts-Tools
+- Chat-Verbesserungen
+- Cooldown-Verfolgung
+- Ziel-Analyse
+
+**Verfügbare Befehle**:
+```
+/aetherc config     - Öffnen Sie das Konfigurationsfenster
+/aetherc status     - Zeigen Sie den Addon-Status an
+/aetherc reset      - Auf Standardeinstellungen zurücksetzen
+/aetherc help       - Befehlshilfe anzeigen
+```
+
+### Optionale Module
+
+**Erweiterte Funktionen-Modul**:
+- Raid-Warnungen
+- Boss-Timer
+- Strategieleitfäden
+
+**Aktivieren**: `/ac modules toggle advanced`
+
+**PvP-Verbesserungen-Modul**:
+- Arena-Informationen
+- Schlachtfeld-Statistiken
+- Verfolgung gegnerischer Teams
+
+**Aktivieren**: `/ac modules toggle pvp`
+
+---
+
+## Konfiguration {#konfiguration-de}
+
+### Schnelleinrichtung
+
+1. **Erste Inbetriebnahme**: AetherCore wird mit Standardeinstellungen initialisiert
+2. **Konfigurationsmenü**: Geben Sie `/ac settings` oder `/aetherc config` ein
+3. **Kategorien**:
+   - Allgemein (Sprache, Autosave, Debug-Modus)
+   - Anzeige (Design, Skalierung, Transparenz)
+   - Funktionen (Modul-Umschalter, Funktions-Umschalter)
+   - Datenbank (Sicherungshäufigkeit, Datenverfügung)
+   - Tastenbelegung (Benutzerdefinierte Hotkeys)
+   - Über (Version, Credits)
+
+### Konfigurationsdateien
+
+Einstellungen werden gespeichert in:
+```
+WoW/WTF/Account/[Account]/SavedVariables/AetherCore.lua
+```
+
+### Allgemeine Einstellungen
+
+**Auto-Save-Datenbank**: Aktiviert (Empfohlen)
+**Design**: Dunkel (Standard)
+**Aktualisierungshäufigkeit**: Alle 5 Minuten (Anpassbar)
+**Debug-Modus**: Deaktiviert (Aktivieren zur Fehlerbehebung)
+
+### Erweiterte Konfiguration
+
+Für fortgeschrittene Benutzer bearbeiten Sie die Lua-Konfigurationsdateien direkt:
+
+```lua
+-- Beispiel: Aktualisierungsrate ändern
+AetherCore_Config = {
+    database = {
+        updateFrequency = 300,  -- Sekunden
+        autoBackup = true,
+        retentionDays = 30
+    },
+    ui = {
+        theme = "dark",
+        scale = 1.0,
+        opacity = 1.0
+    }
+}
+```
+
+---
+
+## Fehlerbehebung
+
+### Häufige Probleme und Lösungen
+
+#### 1. Addon wird nicht geladen
+
+**Problem**: "AetherCore" wird in der Addon-Liste nicht angezeigt
+
+**Lösungen**:
+- Überprüfen Sie den Installationspfad: `Interface/AddOns/AetherCore/`
+- Überprüfen Sie die Ordnerstruktur einschließlich der Datei `AetherCore.toc`
+- Stellen Sie sicher, dass der Ordnername genau "AetherCore" ist (bei Mac/Linux case-sensitive)
+- Deaktivieren Sie vorübergehend konflikt­gende Addons
+- Löschen Sie den WoW-Cache: Löschen Sie den Ordner `WoW/Cache/`
+
+**Befehl zur Überprüfung**: `/aetherc status`
+
+#### 2. Einstellungen werden nicht gespeichert
+
+**Problem**: Die Konfiguration wird nach dem Abmelden zurückgesetzt
+
+**Lösungen**:
+- Überprüfen Sie die Dateiberechtigung für den SavedVariables-Ordner
+- Stellen Sie sicher, dass `AetherCore.lua` in SavedVariables schreibbar ist
+- Versuchen Sie, die Einstellungen zurückzusetzen: `/ac reset`
+- Überprüfen Sie die verfügbare Festplattengröße
+- Deaktivieren Sie den Schreibschutz im Addon-Ordner
+
+#### 3. Datenbank-Korruption
+
+**Problem**: "Datenbankfehler"-Meldung oder Datenverlust
+
+**Lösungen**:
+- Führen Sie die Integritätsprüfung durch: `/ac database repair`
+- Wiederherstellen aus Sicherung: `/ac database restore`
+- Überprüfen Sie die Datenbankdatei: `SavedVariables/AetherCore_DB.lua`
+- Kontaktieren Sie den Support mit Fehlerprotokollen bei Problemen
+
+**Protokollspeicherort**: `WoW/Logs/AetherCore_error.log`
+
+#### 4. Leistungsprobleme
+
+**Problem**: FPS-Abfall oder Verzögerung nach Aktivierung von AetherCore
+
+**Lösungen**:
+- Deaktivieren Sie nicht verwendete Module: `/ac modules list`
+- Reduzieren Sie die Datenbank-Aktualisierungshäufigkeit: `/ac settings > Datenbank`
+- Aktivieren Sie den Low-Performance-Modus: `/ac performance low`
+- Überprüfen Sie auf Konflikte mit anderen Addons
+- Aktualisieren Sie auf die neueste AetherCore-Version
+
+#### 5. Design wird nicht angewendet
+
+**Problem**: Das ausgewählte Design ändert das Erscheinungsbild der Benutzeroberfläche nicht
+
+**Lösungen**:
+- Überprüfen Sie die Design-Installation im Ordner `/themes/`
+- Laden Sie die Benutzeroberfläche neu: `/reload` oder `/rl`
+- Setzen Sie die Benutzeroberfläche auf Standardwerte zurück: `/ac reset`
+- Löschen Sie den temporären Design-Cache: `/ac clearcache`
+- Stellen Sie sicher, dass die benutzerdefinierte Design-Syntax gültig ist
+
+#### 6. Chat-Befehle funktionieren nicht
+
+**Problem**: Befehle `/ac` oder `/aetherc` reagieren nicht
+
+**Lösungen**:
+- Überprüfen Sie, ob das Addon in der Addon-Liste aktiviert ist
+- Verwenden Sie einen alternativen Befehl: `/aetherc` (wenn `/ac` nicht funktioniert)
+- Überprüfen Sie auf Tippfehler in der Befehlsschreibweise
+- Laden Sie die Benutzeroberfläche neu: `/reload`
+- Überprüfen Sie, ob das Addon geladen ist: Überprüfen Sie "Addons" im Hauptmenü
+
+### Hilfe bekommen
+
+1. **Dokumentation überprüfen**: Lesen Sie diese README und die In-Game-Hilfe
+2. **Debug-Modus aktivieren**: `/ac settings > Allgemein > Debug-Modus`
+3. **Protokolle überprüfen**: Überprüfen Sie Fehlerprotokolle unter `WoW/Logs/AetherCore_error.log`
+4. **Community-Support**: Besuchen Sie unsere [Issues](../../issues)-Seite
+5. **Bug-Bericht**: Fügen Sie folgendes ein:
+   - WoW-Version und Sprache
+   - AetherCore-Version: `/ac version`
+   - Fehlermeldung (genaue Wortlaut)
+   - Schritte zum Reproduzieren
+   - Inhalt der Datei `AetherCore_error.log`
+
+---
+
+## Beitragen {#beitragen-de}
+
+Beiträge sind willkommen! Helfen Sie, AetherCore zu verbessern:
+
+### Wie man beiträgt
+
+1. **Bugs melden**: Erstellen Sie ein Problem mit detaillierten Informationen
+2. **Funktionen vorschlagen**: Teilen Sie Ideen für neue Module oder Verbesserungen
+3. **Code einreichen**: Forken Sie das Repository und erstellen Sie einen Pull Request
+4. **Dokumentation verbessern**: Helfen Sie uns, Leitfäden klarer zu gestalten
+5. **Designs erstellen**: Entwerfen und teilen Sie benutzerdefinierte Designs
+
+### Entwicklungs-Setup
+
+```bash
+git clone https://github.com/JugoBetrugoTV/AetherCore.git
+cd AetherCore
+# Nehmen Sie Ihre Änderungen vor
+git commit -am "Beschreibung der Änderungen"
+git push origin your-branch
+```
+
+### Code-Stil
+
+- Folgen Sie Lua-Konventionen
+- Fügen Sie Kommentare für komplexe Logik hinzu
+- Testen Sie gründlich vor dem Einreichen von PRs
+- Fügen Sie Dokumentation für neue Funktionen hinzu
+
+---
+
+## Lizenz
+
+AetherCore wird unter der MIT-Lizenz freigegeben. Weitere Informationen finden Sie in der Datei [LICENSE](LICENSE).
+
+---
+
+## Danksagungen
+
+**Entwickler**: JugoBetrugoTV  
+**Mitwirkende**: Community-Mitglieder und Tester  
+**Version**: 1.0.0  
+**Zuletzt aktualisiert**: 19. Dezember 2025
+
+---
+
+**[⬆ Back to Top](#aethercore---wow-addon-framework)**
